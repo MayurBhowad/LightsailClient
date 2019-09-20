@@ -5,7 +5,9 @@
         <label class="col-md-4">Person Name</label>
         <input type="text" class="form-control" formControlName="person_name" #person_name />
       </div>
-      <div *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)"
+        class="alert alert-danger">
         <div *ngIf="angForm.controls['person_name'].errors.required">
           Person Name is required.
         </div>
@@ -14,7 +16,9 @@
         <label class="col-md-4">Business Name </label>
         <input type="text" class="form-control" formControlName="business_name" #business_name />
       </div>
-      <div *ngIf="angForm.controls['business_name'].invalid && (angForm.controls['business_name'].dirty || angForm.controls['business_name'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="angForm.controls['business_name'].invalid && (angForm.controls['business_name'].dirty || angForm.controls['business_name'].touched)"
+        class="alert alert-danger">
         <div *ngIf="angForm.controls['business_name'].errors.required">
           Person Business is required.
         </div>
@@ -23,16 +27,20 @@
         <label class="col-md-4">Business GST Number </label>
         <input type="text" class="form-control" formControlName="business_gst_number" #business_gst_number />
       </div>
-      <div *ngIf="angForm.controls['business_gst_number'].invalid && (angForm.controls['business_gst_number'].dirty || angForm.controls['business_gst_number'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="angForm.controls['business_gst_number'].invalid && (angForm.controls['business_gst_number'].dirty || angForm.controls['business_gst_number'].touched)"
+        class="alert alert-danger">
         <div *ngIf="angForm.controls['business_gst_number'].errors.required">
           Business GST Number is required.
         </div>
       </div>
       <div class="form-group">
-        <button (click) = "addBusiness(person_name.value, business_name.value, business_gst_number.value)"
-        [disabled]="angForm.pristine || angForm.invalid"
-        class="btn btn-primary">Add Business</button>
+        <button (click)="addBusiness(person_name.value, business_name.value, business_gst_number.value)"
+          [disabled]="angForm.pristine || angForm.invalid || disable" class="btn btn-primary">Add
+          Business</button>
       </div>
     </form>
+
+    <h3>{{ added }}</h3>
   </div>
 </div>

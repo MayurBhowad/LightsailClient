@@ -1,3 +1,22 @@
-<p>
-  gst-get works!
-</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>Person Name</td>
+      <td>Business name</td>
+      <td>GST Number</td>
+      <td>id</td>
+      <td colspan="2">Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let business of businesses">
+      <td>{{business.person_name}}</td>
+      <td>{{business.business_name}}</td>
+      <td>{{business.business_gst_number}}</td>
+      <td>{{ business._id}}</td>
+      <td><a [routerLink]="['/edit', business._id]" class="btn btn-primary">Edit</a></td>
+      <td><a (click)="deleteBusiness(business._id)" class="btn btn-danger">Delete</a></td>
+    </tr>
+  </tbody>
+
+</table>
