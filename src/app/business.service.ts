@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class BusinessService {
 
   url = 'http://localhost:4000/business/';
-
+  editor;
   constructor(private http: HttpClient) { }
 
   addBusiness(person_name, business_name, business_gst_number) {
@@ -26,8 +26,10 @@ export class BusinessService {
     return this.http.get(`${this.url}`);
   }
 
-  editBusiness(_id) {
-    return this.http.get(`${this.url}/edit/${_id}`);
+  editBusiness(_id: any) {
+    return this
+      .http
+      .get(`${this.url}/edit/${_id}`);
   }
 
   updateBusiness(person_name, business_name, business_gst_number, _id) {
@@ -46,7 +48,7 @@ export class BusinessService {
   deleteBusiness(_id) {
     return this
       .http
-      .get(`${this.url}delete/${_id}`);
+      .get(`${this.url}/delete/${_id}`);
   }
 
 }

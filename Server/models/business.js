@@ -10,10 +10,10 @@ let Business = mongoose.Schema({
   },
   business_gst_number: {
     type: Number
-  },
+  }
 },
-{
-  collection: 'business'
-});
+  {
+    collection: 'business'
+  });
 
 module.exports = mongoose.model('Business', Business)

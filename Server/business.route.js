@@ -30,13 +30,15 @@ businessRoute.route('/').get((req, res) => {
 businessRoute.route('/edit/:id').get((req, res) => {
   let id = req.params.id;
   Business.findById(id, (err, business) => {
+
     res.json(business);
+
   })
 });
 
 //  Defined update route
 businessRoute.route('/update/:id').post((req, res) => {
-  Business.findById(req.params.id, (err, next, business) => {
+  Business.findById([{ _id: req.params.id }], (err, next, business) => {
     if (!business) {
       return next(new Error('Could not load document'));
     } else {
